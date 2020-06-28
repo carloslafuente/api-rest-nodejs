@@ -10,13 +10,13 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
 mongoose.connect(config.db, (err, res) => {
-	if (err) {
-		console.log(`connection failed due to: ${err}`);
-	} else {
-		console.log('connection successful');
+  if (err) {
+    console.log(`connection failed due to: ${err}`);
+  } else {
+    console.log('connection successful');
 
-		app.listen(3000, () => {
-			console.log(`API rest running`);
-		});
-	}
+    app.listen(process.env.PORT || 3000, () => {
+      console.log(`API rest running on port: ${config.port}`);
+    });
+  }
 });
